@@ -387,8 +387,11 @@ function SetConfigValue(oconfigSet, orow) {
     for (var param in oconfigSet)
     {
         var sval = orow[param];
-        if (undefined != sval)
+        if (undefined != sval){
         	oconfigSet[param].oldVal = sval;
+	}else{
+        	oconfigSet[param].oldVal = ""; 
+	}
         var dom = T.id(param); //oconfigSet[param].dom ie bug
         if (dom)
             SetOneConfigValue(dom, sval);
